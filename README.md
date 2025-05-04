@@ -86,9 +86,59 @@ hypertext link that will open the **Play** page so that the **Play** page may th
 To be able to play a preview of the chosen song use the following code to embed the Spotify iframe within the page:
 
 ```
-frame src="https://open.spotify.com/embed/track/##########"
+<iframe src="https://open.spotify.com/embed/track/##########"
  width="380" height="380" frameborder="0"
  allowtransparency="true" allow="encrypted-media">
 </iframe>
 ```
+where ########## represents the spotify_track value from the track table in the database.
 
+
+### Playlist Page:
+**Page purpose/description**:
+
+Playlists are collections of songs. Playlists can only be created and accessed by logged in members. The page enables logged in members to create new playlists, add songs to their playlists, play songs from their playlists. Songs cannot be removed from playlists. Playlists cannot be deleted. Playlists belong to a specific member; logged in members cannot access any other member’s playlist(s). Non-members cannot access this page and hence cannot create or change playlists.
+
+
+**Page Content and Functionality**:
+
+The page will:
+1. Include navigation to the other pages of 24/7Music **as appropriate** including a **Log Out** link,
+2. Display the member username for the logged in member,
+3. Display the membership category for the logged in member,
+4. Include a postback form to enable the logged in member to create a **new** playlist. The playlist name will need to be sanitised and validated on the server-side before being inserted into the database. Playlist names may only contain alphanumeric characters and spaces
+5. Include a postback form to enable the member to add a song to a chosen playlist,
+6. Display a list of all playlist names (that belong to the logged in member). Each playlist name is to be a hypertext link that will open the **Play** page so that songs from the chosen playlist may be viewed as described in the **Play** page.
+
+
+### Member Login Page:
+**Page purpose/description**:
+
+The purpose of this page is to provide a login facility for members/subscribers of 24/7Music. Some of the functionality described in previous pages is only available to users after they have logged in.
+
+**Page Content and Functionality**:
+
+The page will:
+1. Include navigation to the other pages of 24/7Music **as appropriate**,
+2. Include a postback login form which contains:
+   - a text box to capture the **member username**.
+   - a password box to capture the **member password**.
+   - a submit/log in button.
+
+  When the form is submitted by the user the page will need to **authenticate** the member credentials (**username and password**) as supplied by the member in the login form against the records in the **membership** table of the 247Music database.
+  The page will allow or deny access to the subsequent pages of 24/7Music depending on the result of authentication as follows:
+  a. **Successful login attempt**: Successful authentication should automatically redirect the member to the Search page.
+  b. **Failed login attempt**: Unsuccessful authentication should automatically redirect to the login page so that the user may try to login again. An appropriate error message must be displayed to the user if the login attempt fails. The message display must be implemented using appropriate PHP server-side code; it is not to be a JavaScript alert (or any other browser side component). The message should be displayed in an appropriate location on the login page in a suitable colour.
+3. A link to the Sign-Up page (the Sign-Up page is not implemented in this version of the web application).
+4. The provision for displaying error messages as detailed below.
+
+**Member Login Credentials**:
+
+The passwords that are stored in the **membership** table of the 247Music database are encrypted using the sha256 algorithm (the passwords are not salted to decrease the complexity of implementation). A list of member usernames and (plain text decrypted) passwords can be found below. After a successful user login, you might wish to store relevant information in session variables for later access.
+
+
+|username           |password      |surname    |firstname    |membership    |
+|-------------------|--------------|-----------|-------------|--------------|
+|alan@me.com        |giantjelly41  |Quay       |Alan         |Free          |
+|paige@turner.com   |redmusk60     |Turner     |Paige        |Premium       |
+|justin@hotmail.com |tinymusic50   |Case       |Justin       |Family        |
