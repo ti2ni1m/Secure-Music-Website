@@ -142,3 +142,30 @@ The passwords that are stored in the **membership** table of the 247Music databa
 |alan@me.com        |giantjelly41  |Quay       |Alan         |Free          |
 |paige@turner.com   |redmusk60     |Turner     |Paige        |Premium       |
 |justin@hotmail.com |tinymusic50   |Case       |Justin       |Family        |
+
+
+### Logout Page:
+
+The purpose of this page is to log the member off the web application and automatically return them to the Search page. The Log Out page must not display anything to the user. **The page should remove all session variables, end the session, and automatically redirect to the Search page**. This page can be accessed from any of the pages as detailed above.
+
+
+
+
+
+## Database Description
+To connect to the 247Music **database** use the following in your php script
+
+```
+$connection = new mysqli('localhost', 'twa999', 'twa999ab', '247music999');
+if ($connection->connect_error) {
+ // Echo out if it failed to connect to the database
+ echo $connection->connect_error;
+}
+```
+
+
+### Notes:
+
+• The tables within the **247Music** database have already been populated with some data. Use the supplied allTables.php script to view the data (make sure you use the connection information as indicated above).
+• Tables in the 247Music database are described in the **247Music Data Dictionary** document.
+• A list of [Member Login Credentials](#member-login-credentials) with user names and [plain text decrypted] passwords can be found in the **Member Login Page** details.
