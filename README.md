@@ -19,7 +19,9 @@ c) provide the following page content and functionality for each page as describ
 
 ### Index Page
 **Page purpose/description**:
+
 This file is the home page to your site. This page only requires:
+
 1. A welcome message
 2. A navigation bar with links to the other pages of 24/7Music *as appropriate* including a **Log Out** link (if the user is
 logged in) or a **Log In** link (if the user is not logged in).
@@ -60,3 +62,33 @@ The Search page will
      iv. A thumbnail image for the match.
    b. **Zero records found**: display an appropriate message underneath the search form instead of a list of results.
 4. Enable the user to choose an album, artist, or song match for viewing/playing from the search results. To do this, the name of the song, name of the artist, or name of the album in the search results list is to be a hypertext link. When clicked, the **hypertext link** loads the **Play page** which displays more specific details for the chosen match. Details of the Play page is given below.
+
+
+### Play Page:
+**Page purpose/description**:
+
+The purpose of this page is to display to the user the content of the **chosen** match. The content displayed will vary depending upon the type of match chosen by the user. The chosen match could be for an artist, album, playlist, or a song. The user may make the choice of match on the **Search** page, on the **Play** page, or on the **Playlist** page. The **Play** page can be used by both non-members and members.
+
+**Page Content and Functionality**:
+
+The page will:
+1. Include navigation to the other pages of 24/7Music **as appropriate** including a **Log Out** link (if the user is logged in) or a **Log In** link (if the user is not logged in).
+2. Display the member username (if the user is logged in)
+3. Display the membership category (if the user is logged in), and
+4. Display content depending on the type of chosen match as follows:
+  a. If the chosen match is an **Artist**, display the name of the artist and the thumbnail image (if one is available). Then display a list of all albums by this artist. For each album, display the album name, the year the album was released and the thumbnail image (if one is available). Each album name should be a hypertext link that will open the **Play** page so that the **Play** page may then display the details of the chosen album (see point 4b).
+  b. If the chosen match is an **Album**, display the album thumbnail image (if one is available), album title, artist name, and a list of all songs from the album. For each song from the album display the song title, and song length. Each song title should be a hypertext link that will open the **Play** page so that the **Play** page may then display the details of the chosen song (see point 4d).
+  c. If the chosen match is a **Playlist**, display the playlist name and a list of all songs in the playlist. For each song in the playlist display the song title, artist name, and song length. Each song title should be a
+hypertext link that will open the **Play** page so that the **Play** page may then display the details of the chosen song (see point 4d).
+  d. If the chosen match is a **Song**, display the song title, album title, song length, a link to ‘add to playlist’ (only available to logged in users), and an iframe to play a sample of the song using the spotify track ID (see details below)
+
+**Playing a sample of a chosen song**:
+To be able to play a preview of the chosen song use the following code to embed the Spotify iframe within the page:
+
+```
+frame src="https://open.spotify.com/embed/track/##########"
+ width="380" height="380" frameborder="0"
+ allowtransparency="true" allow="encrypted-media">
+</iframe>
+```
+
