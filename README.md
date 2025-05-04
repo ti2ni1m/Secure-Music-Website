@@ -29,10 +29,12 @@ logged in) or a **Log In** link (if the user is not logged in).
 
 ### Search Page
 **Page purpose/description**:
+
 This page is a search page to find albums, artists, or songs. The search page can be used by both non-members and
 members.
 
 **Page Content**:
+
 The page will have the following content:
 1. Navigation to the other pages of 24/7Music *as appropriate* including a **Log Out** link (if the user is logged in) or a
 **Log In** link (if the user is not logged in).
@@ -44,8 +46,10 @@ The page will have the following content:
 As indicated above the search text box is mandatory. That is, a search may be performed only if a search keyword has been entered.
 5. A ‘search results’ section that lists songs, artists, albums that match the keyword(s) entered in the form.
 
-**Page Functionality**
+**Page Functionality**:
+
 The Search page will
+
 1. Validate that a search keyword has been entered in the search form (using client-side JavaScript). Do not allow the form to submit unless a search keyword has been entered. Any characters may be entered.
 2. Use **postback** for the search form,
 3. Sanitise the submitted keyword(s) to avoid possible sql injection, then search the 247Music database for records that contain the keyword(s) entered in the search form. The search should check for matches with album names, artist names, and song titles; hint: the SQL “LIKE” operator might help in this query. The search may find zero, one, or many matches depending upon the search term(s) entered. The output from the search depends on the number of matches found:
